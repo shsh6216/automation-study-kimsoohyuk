@@ -1,0 +1,11 @@
+{
+    "total_count": 6,
+    "pass_count": 3,
+    "fail_count": 3,
+    "success_rate": 50.0,
+    "fail_tests": [
+        "Test Name3",
+        "Test Name5",
+        "Test Name6"
+    ]
+}

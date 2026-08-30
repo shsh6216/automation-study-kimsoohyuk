@@ -1,0 +1,37 @@
+{
+    "valid_emails": [
+        {
+            "email": "test1@naver.com",
+            "id": "test1",
+            "domain": "naver.com"
+        },
+        {
+            "email": "test2@gmail.com",
+            "id": "test2",
+            "domain": "gmail.com"
+        },
+        {
+            "email": "test3@kakao.com",
+            "id": "test3",
+            "domain": "kakao.com"
+        },
+        {
+            "email": "test4@naver.com",
+            "id": "test4",
+            "domain": "naver.com"
+        },
+        {
+            "email": "test5@gmail.com",
+            "id": "test5",
+            "domain": "gmail.com"
+        }
+    ],
+    "invalid_emails": [
+        "test6naver.com"
+    ],
+    "domain_count": {
+        "naver.com": 2,
+        "gmail.com": 2,
+        "kakao.com": 1
+    }
+}

@@ -1,0 +1,6 @@
+test1@naver.com
+test2@gmail.com
+test3@kakao.com
+test4@naver.com
+test5@gmail.com
+test6naver.com
