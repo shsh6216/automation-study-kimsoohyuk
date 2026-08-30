@@ -59,7 +59,7 @@ if __name__ == "__main__":
         "fail_tests": fail_tests
     }
 
-    with open("result.json", "w") as file:
+    with open("summary.json", "w") as file:
         json.dump(result, file, indent=4)
 
     
