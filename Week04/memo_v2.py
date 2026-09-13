@@ -16,11 +16,11 @@ def load_memos():
         with open(memo_file, "r", encoding="utf-8") as file:
             return json.load(file)
     except FileNotFoundError:
-        print("메모 파일 없음")
-        return
+        print("추가한 메모 없음")
+        return []
     except json.JSONDecodeError:
         print("JSON 형식이 잘못됨")
-        return
+        return []
 #======================================
 if __name__ == "__main__":
     memos = load_memos()
