@@ -3,19 +3,22 @@ import json
 # 이메일 목록 파일 읽기
 def read_test_name(filename):
     try:
-        with open(filename, "r") as file:
+        with open(filename, "r", encoding="utf-8") as file:
             test_names = file.readlines()
 
         new_test_name = []
 
         for test_name in test_names:
-            new_test_name.append(test_name.strip())
+            test_name = test_name.strip()
+
+            if test_name:
+                new_test_name.append(test_name)
 
         return new_test_name
 
     except FileNotFoundError:
-            print("입력 파일이 존재하지 않음")
-            return []
+            print("존재하지 않는 파일입니다.")
+            exit()
 
 
 #======================================
@@ -33,6 +36,16 @@ if __name__ == "__main__":
         Date = parts[0].strip()
         Test_name = parts[1].strip()
         result = parts[2].strip()
+
+        if len(parts) != 3:
+            print("잘못된 데이터 : ", test)
+            continue
+        if Date == "" or Test_name == "" or result == "":
+            print("잘못된 데이터 :", test)
+            continue
+        if result != "PASS" and result != "FAIL":
+            print("잘못된 데이터 :", test)
+            continue
 
         total_count = total_count + 1
 
@@ -59,7 +72,5 @@ if __name__ == "__main__":
         "fail_tests": fail_tests
     }
 
-    with open("summary.json", "w") as file:
-        json.dump(result, file, indent=4)
-
-    
+    with open("summary.json", "w", encoding="utf-8") as file:
+        json.dump(result, file, ensure_ascii=False, indent=4)
