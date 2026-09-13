@@ -3,28 +3,37 @@ import json
 # 이메일 목록 파일 읽기
 def read_email(filename):
     try:
-        with open(filename, "r") as file:
+        with open(filename, "r", encoding="utf-8") as file:
             emails = file.readlines()
 
         new_emails = []
 
         for email in emails:
-            new_emails.append(email.strip())
+            email = email.strip()
+
+            if email:
+                new_emails.append(email)
 
         return new_emails
 
     except FileNotFoundError:
-        print("입력 파일이 존재하지 않음")
-        return []
+        print("존재하지 않는 파일입니다.")
+        exit()
+    
 
-# 정상적인 이메일과 잘못된 데이터 구분
 def check_email(email):
     if "@" not in email:
         return False
-    return True
 
-# 정상 이메일의 아이디와 도메인 분리
     parts = email.split("@")
+
+    if len(parts) != 2:
+        return False
+
+    if parts[0] == "" or parts[1] == "":
+        return False
+
+    return True
 
 #======================================
 if __name__ == "__main__":
@@ -60,7 +69,9 @@ if __name__ == "__main__":
         else:
             invalid_emails.append(email)
 
-    print("정상 이메일:", valid_emails)
+    for email in valid_emails:
+        print("정상 이메일 : ", email["email"])
+
     print("잘못된 이메일:", invalid_emails)
     print("도메인 개수:", domain_count)
 
@@ -72,7 +83,7 @@ if __name__ == "__main__":
         "domain_count": domain_count
     }
 
-    with open("parsed_emails.json", "w") as file:
-        json.dump(result, file, indent=4)
+    with open("parsed_emails.json", "w", encoding="utf-8") as file:
+        json.dump(result, file, ensure_ascii=False, indent=4)
 
     print("JSON 저장 완료")
