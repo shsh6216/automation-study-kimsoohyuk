@@ -31,13 +31,20 @@ class LoginPage:
         self.login_click()
 
 
+class Menusearch:
+    def __init__(self, page):
+        self.page = page
 
-###
+    def menu_input(self, menu_name):
+        self.page.locator(".nav-link.search").click()
+        self.page.locator(".form-control.form-control-navbar").fill(menu_name)
+        self.page.keyboard.press("Enter")
+
+
+# 분실물등록 화면 이동
 def test_lost_registration(page):
     login = LoginPage(page)
+    menu = Menusearch(page)
 
     login.login()
-
-    page.locator(".nav-link.search").click()
-    page.locator(".form-control.form-control-navbar").fill("분실물등록")
-    page.keyboard.press("Enter")
+    menu.menu_input("분실물등록")
