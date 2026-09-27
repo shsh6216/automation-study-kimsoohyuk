@@ -33,13 +33,14 @@ if __name__ == "__main__":
     for test in test_names:
         parts = test.split(",")
 
+        if len(parts) != 3:
+            print("잘못된 데이터 : ", test)
+            continue
+
         Date = parts[0].strip()
         Test_name = parts[1].strip()
         result = parts[2].strip()
 
-        if len(parts) != 3:
-            print("잘못된 데이터 : ", test)
-            continue
         if Date == "" or Test_name == "" or result == "":
             print("잘못된 데이터 :", test)
             continue

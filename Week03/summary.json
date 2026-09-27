@@ -1,11 +1,9 @@
 {
-    "total_count": 6,
-    "pass_count": 3,
-    "fail_count": 3,
+    "total_count": 2,
+    "pass_count": 1,
+    "fail_count": 1,
     "success_rate": 50.0,
     "fail_tests": [
-        "Test Name3",
-        "Test Name5",
-        "Test Name6"
+        "강아지"
     ]
 }

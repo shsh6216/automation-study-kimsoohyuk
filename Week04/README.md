@@ -2,6 +2,7 @@
 가상환경을 생성하고 실행합니다.
 python -m venv venv
 .\venv\Scripts\Activate.ps1
+pip install python-dotenv
 
 ## 2. 필요한 라이브러리 설치
 pip install -r requirements.txt
